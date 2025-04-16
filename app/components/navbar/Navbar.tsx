@@ -2,7 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, User, ShoppingCart, Menu, X, ChevronDown } from "lucide-react";
+import {
+  Search,
+  User,
+  ShoppingCart,
+  Menu,
+  X,
+  ChevronDown,
+} from "lucide-react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,39 +17,39 @@ export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-transparent backdrop-blur-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="text-2xl font-semibold text-[#a1633c] tracking-wide">
-          MODEVA
+          ZM Fabrics
         </div>
 
-        <nav className="hidden md:flex space-x-6 text-sm text-gray-700 items-center">
+        <nav className="hidden md:flex space-x-6 text-sm text-gray-700 items-center font-bold">
           <div className="relative group">
             <button
-              className="flex items-center gap-1"
+              className="flex items-center gap-1 hover:text-yellow-600"
               onClick={() => setIsCatalogOpen(!isCatalogOpen)}
             >
               Catalog <ChevronDown size={16} />
             </button>
             {isCatalogOpen && (
-              <div className="absolute top-8 left-0 bg-white border shadow-md w-40 z-10">
+              <div className="absolute top-8 left-0 bg-white  shadow-md w-40 z-10">
                 <ul className="py-2 text-sm text-gray-700">
-                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                  <li className="px-4 py-2 hover:bg-gray-400 cursor-pointer">
                     Men
                   </li>
-                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                  <li className="px-4 py-2 hover:bg-gray-400 cursor-pointer">
                     Women
                   </li>
-                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                  <li className="px-4 py-2 hover:bg-gray-400 cursor-pointer">
                     Kids
                   </li>
                 </ul>
               </div>
             )}
           </div>
-          <Link href="#">Sale</Link>
-          <Link href="#">New Arrival</Link>
-          <Link href="#">About</Link>
+          <Link href="#" className="hover:text-yellow-600">Sale</Link>
+          <Link href="#" className="hover:text-yellow-600">New Arrival</Link>
+          <Link href="#" className="hover:text-yellow-600">About</Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
@@ -57,14 +64,14 @@ export default function Navbar() {
               className="absolute left-2 top-2.5 text-gray-500"
             />
           </div>
-          <User className="text-gray-700 cursor-pointer" />
-          <ShoppingCart className="text-gray-700 cursor-pointer" />
+          <User className="text-gray-700 cursor-pointer hover:text-yellow-600" />
+          <ShoppingCart className="text-gray-700 cursor-pointer hover:text-yellow-600" />
         </div>
 
         <div className="md:hidden flex items-center gap-3">
           <Search
             size={22}
-            className="text-gray-700"
+            className="text-gray-700 "
             onClick={() => setIsSearchOpen(!isSearchOpen)}
           />
           <button onClick={() => setMenuOpen(!menuOpen)}>
@@ -87,7 +94,7 @@ export default function Navbar() {
       )}
 
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-md px-4 py-3 space-y-3">
+        <div className="md:hidden bg-white/80 backdrop-blur-md shadow-md px-4 py-3 space-y-3">
           <div>
             <button
               className="flex items-center gap-1 text-sm text-gray-700 w-full"
