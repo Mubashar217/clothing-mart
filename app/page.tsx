@@ -1,10 +1,11 @@
 import Image from "next/image";
+import Navbar from "./components/navbar/Navbar";
 
 export default function Home() {
   return (
-    <h1 className="text-3xl font-bold">
-      Main page
-    </h1>
+   <>
+   <Navbar/>
+   </>
   )
 }
 ;
